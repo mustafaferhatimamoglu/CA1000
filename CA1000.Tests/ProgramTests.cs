@@ -1,7 +1,7 @@
 using System;
 using System.IO;
 
-using Xunit;
+        Assert.Equal("Merhaba!", output);
 
 namespace CA1000.Tests;
 

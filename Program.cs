@@ -4,7 +4,7 @@ namespace CA1000
     {
         public static void Main(string[] args)
         {
-            Console.WriteLine("Hello, World!");
+            Console.WriteLine("Merhaba!");
         }
     }
 }

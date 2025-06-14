@@ -23,4 +23,4 @@ After building, you can execute the application with:
 dotnet run
 ```
 
-The program prints a friendly greeting.
+The program prints **Merhaba!** as a friendly greeting.
