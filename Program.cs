@@ -1,4 +1,4 @@
-﻿namespace CA1000
+namespace CA1000
 {
     public static class Program
     {
