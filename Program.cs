@@ -1,8 +1,8 @@
-﻿namespace CA1000
+namespace CA1000
 {
-    internal class Program
+    public static class Program
     {
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
             Console.WriteLine("Hello, World!");
         }
