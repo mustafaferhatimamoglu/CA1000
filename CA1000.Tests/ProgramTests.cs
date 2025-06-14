@@ -1,6 +1,8 @@
 using System;
 using System.IO;
 
+using Xunit;
+
 namespace CA1000.Tests;
 
 public class ProgramTests
