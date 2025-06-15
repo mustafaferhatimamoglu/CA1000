@@ -1,6 +1,7 @@
 using System;
 using System.IO;
 
+
 using Xunit;
 
 namespace CA1000.Tests;
@@ -8,21 +9,26 @@ namespace CA1000.Tests;
 public class ProgramTests
 {
     [Fact]
-    public void Main_PrintsGreeting()
+
+    public async Task Main_PrintsGreeting()
     {
+        Environment.SetEnvironmentVariable("SKIP_OPENAI", "1");
+
         using var sw = new StringWriter();
         var originalOut = Console.Out;
         Console.SetOut(sw);
         try
         {
-            Program.Main(Array.Empty<string>());
+            await Program.Main(Array.Empty<string>());
+
         }
         finally
         {
             Console.SetOut(originalOut);
+            Environment.SetEnvironmentVariable("SKIP_OPENAI", null);
         }
         var output = sw.ToString().Trim();
-        Assert.Equal("Hello, World!", output);
+        Assert.Equal("Merhaba!", output);
     }
 }
 

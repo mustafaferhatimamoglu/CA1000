@@ -23,4 +23,18 @@ After building, you can execute the application with:
 dotnet run
 ```
 
-The program prints a friendly greeting.
+The program prints **Merhaba!** as a friendly greeting.
+
+### Using the OpenAI API
+
+Create a file named `openai_key.txt` containing your API key or set the
+`OPENAI_API_KEY` environment variable. The optional variable
+`OPENAI_API_KEY_FILE` can point to a different key file. When a key is
+available, the program sends a request to the OpenAI chat completion API asking
+it to respond to "Merhaba". If the API call fails or `SKIP_OPENAI` is set to
+`1`, the program falls back to the local greeting.
+
+```bash
+echo YOUR_API_KEY > openai_key.txt
+dotnet run
+```
