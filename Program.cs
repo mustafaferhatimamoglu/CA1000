@@ -32,6 +32,29 @@ public static class Program
         }
 
         Console.WriteLine(greeting);
+
+        await LogGreetingAsync(greeting);
+    }
+
+    private static async Task LogGreetingAsync(string message)
+    {
+        var script = GetLoggerScriptPath();
+        var startInfo = new System.Diagnostics.ProcessStartInfo
+        {
+            FileName = "node",
+            ArgumentList = { script, message },
+            RedirectStandardOutput = true,
+            RedirectStandardError = true,
+            UseShellExecute = false
+        };
+
+        using var process = System.Diagnostics.Process.Start(startInfo)!;
+        await process.WaitForExitAsync();
+    }
+
+    private static string GetLoggerScriptPath()
+    {
+        return Path.Combine(AppContext.BaseDirectory, "logger.js");
     }
 
     private static string? LoadApiKey()
