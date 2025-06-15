@@ -11,6 +11,9 @@
   <ItemGroup>
     <!-- Exclude test sources from the main build -->
     <Compile Remove="CA1000.Tests\**" />
+    <Content Include="logger.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 
 </Project>

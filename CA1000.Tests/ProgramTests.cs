@@ -30,5 +30,25 @@ public class ProgramTests
         var output = sw.ToString().Trim();
         Assert.Equal("Merhaba!", output);
     }
+
+    [Fact]
+    public async Task Main_WritesLogFile()
+    {
+        const string logFile = "app.log";
+        if (File.Exists(logFile))
+        {
+            File.Delete(logFile);
+        }
+
+        Environment.SetEnvironmentVariable("SKIP_OPENAI", "1");
+
+        await Program.Main(Array.Empty<string>());
+
+        Environment.SetEnvironmentVariable("SKIP_OPENAI", null);
+
+        Assert.True(File.Exists(logFile));
+        var contents = File.ReadAllText(logFile);
+        Assert.Contains("Merhaba!", contents);
+    }
 }
 
